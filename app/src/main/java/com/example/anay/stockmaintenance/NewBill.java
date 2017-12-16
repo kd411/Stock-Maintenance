@@ -21,7 +21,7 @@ import java.util.*;
 public class NewBill extends AppCompatActivity {
      static ArrayList<ItemModel> itemlist = new ArrayList<>();
      RecyclerView recyclerView;
-     PriceAdapter itemAdapter;
+     NoteAdapter itemAdapter;
      Button print;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class NewBill extends AppCompatActivity {
         itemlist = readFromFile();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        itemAdapter= new PriceAdapter(itemlist);
+        itemAdapter= new NoteAdapter(itemlist);
         recyclerView.setAdapter(itemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

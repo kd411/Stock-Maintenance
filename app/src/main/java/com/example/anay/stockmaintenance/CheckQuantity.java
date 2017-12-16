@@ -13,8 +13,6 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -31,15 +29,8 @@ public class CheckQuantity extends AppCompatActivity {
         setContentView(R.layout.activity_check_quantity);
 
         stocklist = readFromFile();
-        File file=new File(getApplicationContext().getFilesDir(),"Buy.txt");
-        file.delete();
         stocklist=sort(stocklist);
-        for(int i=0;i<stocklist.size();i++)
-        {
-            if(Integer.parseInt(stocklist.get(i).quantity)<=5) {
-                writeToBuy(stocklist.get(i));
-            }
-        }
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         itemAdapter= new NoteAdapter(stocklist);
         recyclerView.setAdapter(itemAdapter);
@@ -87,19 +78,5 @@ public class CheckQuantity extends AppCompatActivity {
             }
         }
         return stocklist;
-    }
-    public void writeToBuy(ItemModel item){
-        String filename="Buy.txt";
-        Gson gson=new Gson();
-        String jsonItem =gson.toJson(item);
-        try{
-            File file=new File(getApplicationContext().getFilesDir(),filename);
-            FileWriter fw=new FileWriter(file,true);
-            fw.write(jsonItem+"\n");
-            fw.close();
-        }
-        catch (IOException e){
-            e.getMessage();
-        }
     }
 }

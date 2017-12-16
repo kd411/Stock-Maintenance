@@ -40,7 +40,10 @@
         android:layout_marginRight="48dp"
         android:layout_marginTop="60dp"
         android:layout_weight="1"
-        android:text=" Add To Bill" />
+        android:background="@drawable/btn"
+        android:elevation="10dp"
+        android:text=" Add To Bill"
+        android:textColor="@color/colorPrimary" />
 
 
 </LinearLayout>
