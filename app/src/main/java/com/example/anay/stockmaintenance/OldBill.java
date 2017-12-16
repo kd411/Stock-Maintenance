@@ -20,7 +20,7 @@ public class OldBill extends AppCompatActivity {
 
     static ArrayList<ItemModel> prevbills = new ArrayList<>();
     RecyclerView recyclerView;
-    PriceAdapter itemAdapter;
+    NoteAdapter itemAdapter;
     Button gobackhome;
 
     @Override
@@ -32,7 +32,7 @@ public class OldBill extends AppCompatActivity {
         Collections.reverse(prevbills);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        itemAdapter= new PriceAdapter(prevbills);
+        itemAdapter= new NoteAdapter(prevbills);
         recyclerView.setAdapter(itemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
